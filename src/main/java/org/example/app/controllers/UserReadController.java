@@ -15,8 +15,8 @@ public class UserReadController {
         this.view = view;
     }
 
-    public void readContacts() {
-        view.getOutput(service.readContacts());
+    public void readUsers() {
+        view.getOutput(service.readUsers());
         AppStarter.startApp();
     }
 }

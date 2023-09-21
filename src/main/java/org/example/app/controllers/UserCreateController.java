@@ -14,8 +14,8 @@ public class UserCreateController {
         this.view = view;
     }
 
-    public void createContact() {
-        view.getOutput(service.createContact(view.getData()));
+    public void createUser() {
+        view.getOutput(service.createUser(view.getData()));
         AppStarter.startApp();
     }
 }

@@ -14,8 +14,8 @@ public class UserUpdateController {
         this.view = view;
     }
 
-    public void updateContact() {
-        view.getOutput(service.updateContact(view.getData()));
+    public void updateUser() {
+        view.getOutput(service.updateUser(view.getData()));
         AppStarter.startApp();
     }
 }
