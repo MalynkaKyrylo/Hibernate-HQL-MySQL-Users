@@ -11,11 +11,7 @@ public final class Constants {
     public final static String DB_PASS = PassReader.readPass();
 
 
-    // Regex для телефону у форматі xxx xxx-xxxx
-    public final static String PHONE_RGX = "[0-9]{3}[\\ ][0-9]{3}-[0-9]{4}";
-    public final static String WRONG_PHONE_MSG = "Wrong phone input.";
-
-    // Regex для email
+     // Regex для email
     public final static String EMAIL_RGX = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
     public final static String WRONG_EMAIL_MSG = "Wrong email input.";
 
