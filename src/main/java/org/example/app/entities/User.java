@@ -12,7 +12,7 @@ import jakarta.persistence.*;
 // @Table(name = "contacts1")
 // Вказує таблицю в БД, з якою зіставлено цей об'єкт.
 @Entity
-@Table(name = "contacts1")
+@Table(name = "users1")
 public class User {
 
     // @Id
@@ -36,14 +36,14 @@ public class User {
     // Тут, найменування стовпця в БД
     // не збігається із найменуванням змінної.
     // Атрибут name вирішує проблему.
+    @Column(name = "user_name")
+    private String userName;
+
     @Column(name = "first_name")
     private String firstName;
 
     @Column(name = "last_name")
     private String lastName;
-
-    @Column(name = "phone")
-    private String phone;
 
     @Column(name = "email")
     private String email;
@@ -51,11 +51,11 @@ public class User {
     public User() {
     }
 
-    public User(int id, String firstName, String lastName, String phone, String email) {
+    public User(int id, String userName, String firstName, String lastName, String email) {
         this.id = id;
+        this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phone = phone;
         this.email = email;
     }
 
@@ -67,6 +67,13 @@ public class User {
         this.id = id;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
     public String getFirstName() {
         return firstName;
     }
@@ -81,14 +88,6 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public String getEmail() {
