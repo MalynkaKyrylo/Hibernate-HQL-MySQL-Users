@@ -29,7 +29,7 @@ public class AppView {
                 ______ MENU ___________
                 1 - Create a user.
                 2 - View users.
-                3 - Update the user's phone number.
+                3 - Update the user's email.
                 4 - Delete user.
                 0 - Close the App.
                 """);
