@@ -18,33 +18,33 @@ CREATE DATABASE demo_db;
 
 CREATE TABLE IF NOT EXISTS contacts1
 ( id INTEGER NOT NULL AUTO_INCREMENT,
-  first_name VARCHAR(128) NOT NULL,
-  last_name VARCHAR(128) NOT NULL,
-  phone VARCHAR(56) NOT NULL,
-  email VARCHAR(128) NOT NULL,
-  PRIMARY KEY (id)
+    user_name VARCHAR(128) NOT NULL,
+    first_name VARCHAR(128) NOT NULL,
+    last_name VARCHAR(128) NOT NULL,
+    email VARCHAR(128) NOT NULL,
+    PRIMARY KEY (id)
 );
 
 
 -- HQL
-INSERT INTO Contact (firstName, lastName, phone, email) VALUES (:firstName, :lastName, :phone, :email)
+INSERT INTO User (user_name, first_name, last_name,  email) VALUES (:user_name, :first_name, :last_name, :phone, :email)
 -- SQL
-INSERT INTO contacts1 (first_name, last_name, phone, email) VALUES (:first_name, :last_name, :phone, :email)
+INSERT INTO users1 (user_name, first_name, last_name,  email) VALUES (:user_name, :first_name, :last_name, :phone, :email)
 
 
 -- HQL
-FROM Contact
+FROM User
 -- SQL
-SELECT * FROM contacts1
+SELECT * FROM users1
 
 
 -- HQL
-UPDATE Contact SET phone = :phone WHERE id = :id
+UPDATE User SET email = :email WHERE id = :id
 -- SQL
-UPDATE contacts1 SET phone = :phone WHERE id = :id
+UPDATE users1 SET email = :email WHERE id = :id
 
 
 -- HQL
-DELETE FROM Contact WHERE id = :id
+DELETE FROM User WHERE id = :id
 -- SQL
-DELETE FROM contacts1 WHERE id = :id;
+DELETE FROM users1 WHERE id = :id;
