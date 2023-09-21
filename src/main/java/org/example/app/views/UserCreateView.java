@@ -8,7 +8,11 @@ public class UserCreateView {
 
         Scanner scanner = new Scanner(System.in);
 
-        String title = "Enter first name: ";
+        String title = "Enter user name: ";
+        System.out.print(title);
+        String userName = scanner.nextLine().trim();
+
+        title = "Enter first name: ";
         System.out.print(title);
         String firstName = scanner.nextLine().trim();
 
@@ -16,15 +20,11 @@ public class UserCreateView {
         System.out.print(title);
         String lastName = scanner.nextLine().trim();
 
-        title = "Enter phone in format xxx xxx-xxxx: ";
-        System.out.print(title);
-        String phone = scanner.nextLine().trim();
-
         title = "Enter email in format example@mail.com: ";
         System.out.print(title);
         String email = scanner.nextLine().trim();
 
-        return new String[]{firstName, lastName, phone, email};
+        return new String[]{userName, firstName, lastName, email};
     }
 
     public void getOutput(String output) {
