@@ -17,7 +17,7 @@ import java.util.*;
 
 public class UserReadRepository {
 
-//    public List<Contact> readContacts() {
+//    public List<Contact> readUsers() {
 //        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 //            return session.createQuery("FROM Contact", Contact.class).list();
 //        } catch (Exception e) {
@@ -26,13 +26,13 @@ public class UserReadRepository {
 //        }
 //    }
 
-    public List<User> readContacts() {
+    public List<User> readUsers() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction transaction;
             // Транзакція стартує
             transaction = session.beginTransaction();
             List<User> users =
-                    session.createQuery("FROM Contact", User.class).list();
+                    session.createQuery("FROM User", User.class).list();
             // Транзакція виконується
             transaction.commit();
             return users;

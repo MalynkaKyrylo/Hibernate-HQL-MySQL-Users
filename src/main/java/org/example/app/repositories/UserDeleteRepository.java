@@ -10,18 +10,18 @@ import org.hibernate.query.MutationQuery;
 
 public class UserDeleteRepository {
 
-    public String deleteContact(User user) {
+    public String deleteUser(User user) {
         // Перевіряємо наявність id в БД.
         // ТАК - працюємо з даними.
         // НІ - повідомлення про відсутність id.
         if (IdChecker.isIdExists(user)) {
-            return deleteContactById(user);
+            return deleteUserById(user);
         } else {
             return Constants.ID_NO_EXISTS_MSG;
         }
     }
 
-    public String deleteContactById(User user) {
+    public String deleteUserById(User user) {
 
         Transaction transaction = null;
 
@@ -33,7 +33,7 @@ public class UserDeleteRepository {
             user = session.get(User.class, user.getId());
 
             if (user != null) {
-                String hql = "DELETE FROM Contact WHERE id = :id";
+                String hql = "DELETE FROM User WHERE id = :id";
                 MutationQuery query = session.createMutationQuery(hql);
                 query.setParameter("id", user.getId());
                 query.executeUpdate();

@@ -23,7 +23,7 @@ import org.hibernate.query.MutationQuery;
 
 public class UserCreateRepository {
 
-    public String createContact(User user) {
+    public String createUser(User user) {
 
         Transaction transaction = null;
 
@@ -31,13 +31,13 @@ public class UserCreateRepository {
             // Транзакція стартує
             transaction = session.beginTransaction();
 
-            String hql = "INSERT INTO Contact (firstName, lastName, phone, email) " +
-                    "VALUES (:firstName, :lastName, :phone, :email)";
+            String hql = "INSERT INTO User (userName, firstName, lastName, email) " +
+                    "VALUES (:userName, :firstName, :lastName, :email)";
 
             MutationQuery query = session.createMutationQuery(hql);
+            query.setParameter("userName", user.getUserName());
             query.setParameter("firstName", user.getFirstName());
             query.setParameter("lastName", user.getLastName());
-            query.setParameter("phone", user.getPhone());
             query.setParameter("email", user.getEmail());
             query.executeUpdate();
 

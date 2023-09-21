@@ -10,18 +10,18 @@ import org.hibernate.query.MutationQuery;
 
 public class UserUpdateRepository {
 
-    public String updateContact(User user) {
+    public String updateUser(User user) {
         // Перевіряємо наявність id в БД.
         // ТАК - працюємо з даними.
         // НІ - повідомлення про відсутність id.
         if (IdChecker.isIdExists(user)) {
-            return updateContactById(user);
+            return updateUserById(user);
         } else {
             return Constants.ID_NO_EXISTS_MSG;
         }
     }
 
-    private String updateContactById(User user) {
+    private String updateUserById(User user) {
 
         Transaction transaction = null;
 
@@ -29,9 +29,9 @@ public class UserUpdateRepository {
             // Транзакция стартует
             transaction = session.beginTransaction();
 
-            String hql = "UPDATE Contact SET phone = :phone WHERE id = :id";
+            String hql = "UPDATE User SET email = :email WHERE id = :id";
             MutationQuery query = session.createMutationQuery(hql);
-            query.setParameter("phone", user.getPhone());
+            query.setParameter("email", user.getEmail());
             query.setParameter("id", user.getId());
             query.executeUpdate();
             // Транзакция выполняется
