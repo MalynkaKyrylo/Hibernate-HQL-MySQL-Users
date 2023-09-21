@@ -13,7 +13,7 @@ import jakarta.persistence.*;
 // Вказує таблицю в БД, з якою зіставлено цей об'єкт.
 @Entity
 @Table(name = "contacts1")
-public class Contact {
+public class User {
 
     // @Id
     // Визначає первинний ключ об'єкта.
@@ -48,10 +48,10 @@ public class Contact {
     @Column(name = "email")
     private String email;
 
-    public Contact() {
+    public User() {
     }
 
-    public Contact(int id, String firstName, String lastName, String phone, String email) {
+    public User(int id, String firstName, String lastName, String phone, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

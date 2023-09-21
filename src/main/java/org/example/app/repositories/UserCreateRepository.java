@@ -1,6 +1,6 @@
 package org.example.app.repositories;
 
-import org.example.app.entities.Contact;
+import org.example.app.entities.User;
 import org.example.app.utils.Constants;
 import org.example.app.utils.HibernateUtil;
 // Interface Session. Основний інтерфейс часу виконання між
@@ -21,9 +21,9 @@ import org.hibernate.Transaction;
 // https://docs.jboss.org/hibernate/orm/6.2/javadocs/org/hibernate/query/QueryProducer.html#createMutationQuery(java.lang.String)
 import org.hibernate.query.MutationQuery;
 
-public class ContactCreateRepository {
+public class UserCreateRepository {
 
-    public String createContact(Contact contact) {
+    public String createContact(User user) {
 
         Transaction transaction = null;
 
@@ -35,10 +35,10 @@ public class ContactCreateRepository {
                     "VALUES (:firstName, :lastName, :phone, :email)";
 
             MutationQuery query = session.createMutationQuery(hql);
-            query.setParameter("firstName", contact.getFirstName());
-            query.setParameter("lastName", contact.getLastName());
-            query.setParameter("phone", contact.getPhone());
-            query.setParameter("email", contact.getEmail());
+            query.setParameter("firstName", user.getFirstName());
+            query.setParameter("lastName", user.getLastName());
+            query.setParameter("phone", user.getPhone());
+            query.setParameter("email", user.getEmail());
             query.executeUpdate();
 
             // Транзакція виконується

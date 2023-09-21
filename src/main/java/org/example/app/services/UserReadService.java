@@ -1,24 +1,24 @@
 package org.example.app.services;
 
-import org.example.app.entities.Contact;
-import org.example.app.repositories.ContactReadRepository;
+import org.example.app.entities.User;
+import org.example.app.repositories.UserReadRepository;
 import org.example.app.utils.Constants;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class ContactReadService {
+public class UserReadService {
 
-    ContactReadRepository repository;
+    UserReadRepository repository;
 
-    public ContactReadService(ContactReadRepository repository) {
+    public UserReadService(UserReadRepository repository) {
         this.repository = repository;
     }
 
     public String readContacts() {
 
         // Отримуємо дані у колекцію.
-        List<Contact> list = repository.readContacts();
+        List<User> list = repository.readContacts();
 
         // Якщо колекція не null, формуємо виведення.
         // Інакше повідомлення про відсутність даних.

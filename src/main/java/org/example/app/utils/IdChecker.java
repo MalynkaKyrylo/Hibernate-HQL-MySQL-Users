@@ -1,6 +1,6 @@
 package org.example.app.utils;
 
-import org.example.app.entities.Contact;
+import org.example.app.entities.User;
 
 // Interface Session. Основний інтерфейс часу виконання між
 // Java програмою і Hibernate. Представляє поняття контексту збереження,
@@ -13,18 +13,18 @@ import org.hibernate.query.Query;
 // Клас-перевірка наявності id у БД
 public class IdChecker {
 
-    public static boolean isIdExists(Contact contact) {
+    public static boolean isIdExists(User user) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // Перевірка наявності об'єкту за певним id
-            contact = session.get(Contact.class, contact.getId());
+            user = session.get(User.class, user.getId());
 
-            if (contact != null) {
-                Query<Contact> query = session.createQuery("FROM Contact", Contact.class);
+            if (user != null) {
+                Query<User> query = session.createQuery("FROM Contact", User.class);
                 query.setMaxResults(1);
                 query.getResultList();
             }
-            return contact != null;
+            return user != null;
         }
     }
 }

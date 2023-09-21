@@ -1,6 +1,6 @@
 package org.example.app.repositories;
 
-import org.example.app.entities.Contact;
+import org.example.app.entities.User;
 import org.example.app.utils.HibernateUtil;
 // Interface Session. Основний інтерфейс часу виконання між
 // Java програмою і Hibernate. Представляє поняття контексту збереження,
@@ -15,7 +15,7 @@ import org.hibernate.Transaction;
 
 import java.util.*;
 
-public class ContactReadRepository {
+public class UserReadRepository {
 
 //    public List<Contact> readContacts() {
 //        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -26,16 +26,16 @@ public class ContactReadRepository {
 //        }
 //    }
 
-    public List<Contact> readContacts() {
+    public List<User> readContacts() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction transaction;
             // Транзакція стартує
             transaction = session.beginTransaction();
-            List<Contact> contacts =
-                    session.createQuery("FROM Contact", Contact.class).list();
+            List<User> users =
+                    session.createQuery("FROM Contact", User.class).list();
             // Транзакція виконується
             transaction.commit();
-            return contacts;
+            return users;
         } catch (Exception e) {
             // Якщо помилка – повертаємо порожню колекцію
             return Collections.emptyList();

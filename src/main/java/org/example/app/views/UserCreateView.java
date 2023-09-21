@@ -2,7 +2,7 @@ package org.example.app.views;
 
 import java.util.Scanner;
 
-public class ContactCreateView {
+public class UserCreateView {
 
     public String[] getData() {
 

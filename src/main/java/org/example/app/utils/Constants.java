@@ -1,10 +1,15 @@
 package org.example.app.utils;
 
+import org.example.app.database.PassReader;
+
 public final class Constants {
 
     public final static String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     public final static String DB_URL = "jdbc:mysql://localhost:3306/demo_db?";
     public final static String DB_USER = "dev";
+    public final static String CREDS = "credentials/";
+    public final static String DB_PASS = PassReader.readPass();
+
 
     // Regex для телефону у форматі xxx xxx-xxxx
     public final static String PHONE_RGX = "[0-9]{3}[\\ ][0-9]{3}-[0-9]{4}";

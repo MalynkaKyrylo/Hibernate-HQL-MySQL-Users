@@ -1,19 +1,19 @@
 package org.example.app.services;
 
-import org.example.app.entities.Contact;
+import org.example.app.entities.User;
 import org.example.app.exceptions.UpdateException;
-import org.example.app.repositories.ContactDeleteRepository;
+import org.example.app.repositories.UserDeleteRepository;
 import org.example.app.utils.Constants;
 import org.example.app.utils.IdValidator;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ContactDeleteService {
+public class UserDeleteService {
 
-    ContactDeleteRepository repository;
+    UserDeleteRepository repository;
 
-    public ContactDeleteService(ContactDeleteRepository repository) {
+    public UserDeleteService(UserDeleteRepository repository) {
         this.repository = repository;
     }
 
@@ -42,9 +42,9 @@ public class ContactDeleteService {
         return errors;
     }
 
-    private Contact convertData(String[] data) {
-        Contact contact = new Contact();
-        contact.setId(Integer.parseInt(data[0]));
-        return contact;
+    private User convertData(String[] data) {
+        User user = new User();
+        user.setId(Integer.parseInt(data[0]));
+        return user;
     }
 }

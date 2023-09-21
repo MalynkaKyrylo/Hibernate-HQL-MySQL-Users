@@ -1,7 +1,6 @@
 package org.example.app.utils;
 
-import org.example.app.database.Credentials;
-import org.example.app.entities.Contact;
+import org.example.app.entities.User;
 // Interface SessionFactory є екземпляром Hibernate.
 // Він підтримує метамодель часу виконання, що представляє постійні
 // об'єкти, їх атрибути, їх асоціації та їх зіставлення з таблицями реляційної
@@ -28,7 +27,7 @@ public class HibernateUtil {
         if (sessionFactory == null) {
             try {
                 Configuration configuration = getConfiguration();
-                configuration.addAnnotatedClass(Contact.class);
+                configuration.addAnnotatedClass(User.class);
 
                 ServiceRegistry serviceRegistry =
                         new StandardServiceRegistryBuilder()
@@ -49,7 +48,7 @@ public class HibernateUtil {
         settings.put(Environment.DRIVER, Constants.DB_DRIVER);
         settings.put(Environment.URL, Constants.DB_URL);
         settings.put(Environment.USER, Constants.DB_USER);
-        settings.put(Environment.PASS, Credentials.DB_PASS);
+        settings.put(Environment.PASS, Constants.DB_PASS);
         settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
         configuration.setProperties(settings);
         return configuration;

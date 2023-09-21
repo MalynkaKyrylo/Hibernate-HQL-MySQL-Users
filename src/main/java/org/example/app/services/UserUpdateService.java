@@ -1,8 +1,8 @@
 package org.example.app.services;
 
-import org.example.app.entities.Contact;
+import org.example.app.entities.User;
 import org.example.app.exceptions.UpdateException;
-import org.example.app.repositories.ContactUpdateRepository;
+import org.example.app.repositories.UserUpdateRepository;
 import org.example.app.utils.Constants;
 import org.example.app.utils.IdValidator;
 import org.example.app.utils.PhoneValidator;
@@ -10,11 +10,11 @@ import org.example.app.utils.PhoneValidator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ContactUpdateService {
+public class UserUpdateService {
 
-    ContactUpdateRepository repository;
+    UserUpdateRepository repository;
 
-    public ContactUpdateService(ContactUpdateRepository repository) {
+    public UserUpdateService(UserUpdateRepository repository) {
         this.repository = repository;
     }
 
@@ -46,10 +46,10 @@ public class ContactUpdateService {
         return errors;
     }
 
-    private Contact convertData(String[] data) {
-        Contact contact = new Contact();
-        contact.setId(Integer.parseInt(data[0]));
-        contact.setPhone(data[1]);
-        return contact;
+    private User convertData(String[] data) {
+        User user = new User();
+        user.setId(Integer.parseInt(data[0]));
+        user.setPhone(data[1]);
+        return user;
     }
 }

@@ -1,6 +1,6 @@
 package org.example.app.repositories;
 
-import org.example.app.entities.Contact;
+import org.example.app.entities.User;
 import org.example.app.utils.Constants;
 import org.example.app.utils.HibernateUtil;
 import org.example.app.utils.IdChecker;
@@ -8,35 +8,39 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.MutationQuery;
 
-public class ContactUpdateRepository {
+public class UserDeleteRepository {
 
-    public String updateContact(Contact contact) {
+    public String deleteContact(User user) {
         // Перевіряємо наявність id в БД.
         // ТАК - працюємо з даними.
         // НІ - повідомлення про відсутність id.
-        if (IdChecker.isIdExists(contact)) {
-            return updateContactById(contact);
+        if (IdChecker.isIdExists(user)) {
+            return deleteContactById(user);
         } else {
             return Constants.ID_NO_EXISTS_MSG;
         }
     }
 
-    private String updateContactById(Contact contact) {
+    public String deleteContactById(User user) {
 
         Transaction transaction = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            // Транзакция стартует
+            // Транзакція стартує
             transaction = session.beginTransaction();
 
-            String hql = "UPDATE Contact SET phone = :phone WHERE id = :id";
-            MutationQuery query = session.createMutationQuery(hql);
-            query.setParameter("phone", contact.getPhone());
-            query.setParameter("id", contact.getId());
-            query.executeUpdate();
-            // Транзакция выполняется
+            // Видалення об'єкту
+            user = session.get(User.class, user.getId());
+
+            if (user != null) {
+                String hql = "DELETE FROM Contact WHERE id = :id";
+                MutationQuery query = session.createMutationQuery(hql);
+                query.setParameter("id", user.getId());
+                query.executeUpdate();
+            }
+            // Транзакція виконується
             transaction.commit();
-            return Constants.DATA_UPDATE_MSG;
+            return Constants.DATA_DELETE_MSG;
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
