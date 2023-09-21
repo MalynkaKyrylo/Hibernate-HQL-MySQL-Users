@@ -27,3 +27,13 @@ https://docs.jboss.org/hibernate/orm/6.2/userguide/html_single/Hibernate_User_Gu
 
 7) Перевіряємо працездатність програми.
 
+------------------
+
+На прикладі проекту Hibernate-HQL-MySQL-Contacts
+
+розробити окремий проект Hibernate-HQL-MySQL-Users.
+
+
+User має: user_name, first_name, last_name, email.
+
+
