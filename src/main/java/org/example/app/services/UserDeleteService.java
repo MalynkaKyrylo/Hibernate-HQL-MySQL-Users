@@ -17,7 +17,7 @@ public class UserDeleteService {
         this.repository = repository;
     }
 
-    public String deleteContact(String[] data) {
+    public String deleteUser(String[] data) {
 
         Map<String, String> errors = validateData(data);
 
@@ -29,7 +29,7 @@ public class UserDeleteService {
             }
         }
 
-        return repository.deleteContact(convertData(data));
+        return repository.deleteUser(convertData(data));
     }
 
     private Map<String, String> validateData(String[] data) {

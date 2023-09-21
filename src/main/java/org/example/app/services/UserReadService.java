@@ -15,10 +15,10 @@ public class UserReadService {
         this.repository = repository;
     }
 
-    public String readContacts() {
+    public String readUsers() {
 
         // Отримуємо дані у колекцію.
-        List<User> list = repository.readContacts();
+        List<User> list = repository.readUsers();
 
         // Якщо колекція не null, формуємо виведення.
         // Інакше повідомлення про відсутність даних.
@@ -33,16 +33,16 @@ public class UserReadService {
                                 .append(") id: ")
                                 .append(contact.getId())
                                 .append(", ")
+                                .append(contact.getUserName())
+                                .append(" ")
                                 .append(contact.getFirstName())
                                 .append(" ")
                                 .append(contact.getLastName())
                                 .append(", ")
-                                .append(contact.getPhone())
-                                .append(", ")
                                 .append(contact.getEmail())
                                 .append("\n")
                 );
-                return "\n______ CONTACTS ___________\n" + stringBuilder;
+                return "\n______ USERS ___________\n" + stringBuilder;
             } else return Constants.DATA_ABSENT_MSG;
         } else return Constants.DATA_ABSENT_MSG;
     }

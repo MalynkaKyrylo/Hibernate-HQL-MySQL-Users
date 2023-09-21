@@ -18,36 +18,36 @@ import org.example.app.views.UserUpdateView;
 
 public class AppService {
 
-    public void createContact() {
+    public void createUser() {
         UserCreateRepository repository = new UserCreateRepository();
         UserCreateService service = new UserCreateService(repository);
         UserCreateView view = new UserCreateView();
         UserCreateController controller = new UserCreateController(service, view);
-        controller.createContact();
+        controller.createUser();
     }
 
-    public void readContacts() {
+    public void readUsers() {
         UserReadRepository repository = new UserReadRepository();
         UserReadService service = new UserReadService(repository);
         UserReadView view = new UserReadView();
         UserReadController controller = new UserReadController(service, view);
-        controller.readContacts();
+        controller.readUsers();
     }
 
-    public void updateContact() {
+    public void updateUser() {
         UserUpdateRepository repository = new UserUpdateRepository();
         UserUpdateService service = new UserUpdateService(repository);
         UserUpdateView view = new UserUpdateView();
         UserUpdateController controller = new UserUpdateController(service, view);
-        controller.updateContact();
+        controller.updateUser();
     }
 
-    public void deleteContact() {
+    public void deleteUser() {
         UserDeleteRepository repository = new UserDeleteRepository();
         UserDeleteService service = new UserDeleteService(repository);
         UserDeleteView view = new UserDeleteView();
         UserDeleteController controller = new UserDeleteController(service, view);
-        controller.deleteContact();
+        controller.deleteUser();
     }
 
     public void getNoSuchOption(int choice) {
