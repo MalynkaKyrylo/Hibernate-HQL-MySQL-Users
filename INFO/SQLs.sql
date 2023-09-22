@@ -16,7 +16,7 @@ CREATE DATABASE demo_db;
 -- Можемо створити таблиці БД через візуальний інструмент, наприклад,
 -- MySQL Workbench.
 
-CREATE TABLE IF NOT EXISTS contacts1
+CREATE TABLE IF NOT EXISTS users1
 ( id INTEGER NOT NULL AUTO_INCREMENT,
     user_name VARCHAR(128) NOT NULL,
     first_name VARCHAR(128) NOT NULL,
