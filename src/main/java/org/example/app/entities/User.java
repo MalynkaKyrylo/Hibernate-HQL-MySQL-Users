@@ -12,7 +12,7 @@ import jakarta.persistence.*;
 // @Table(name = "contacts1")
 // Вказує таблицю в БД, з якою зіставлено цей об'єкт.
 @Entity
-@Table(name = "users1")
+@Table(name = "users")
 public class User {
 
     // @Id
